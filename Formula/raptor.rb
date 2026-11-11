@@ -7,6 +7,11 @@ class Raptor < Formula
   license "MIT"
   head "https://github.com/alienxp03/raptor.git", branch: "master"
 
+  url "https://github.com/alienxp03/raptor/releases/download/v0.1.0/Raptor-0.1.0-universal.zip"
+  sha256 "534d55ba2ca3e2162839ce29449ef1dface4987662dc9f450e74eb0dee01abe5"
+  version "0.1.0"
+
+
   if build.head?
     depends_on xcode: ["26.0", :build]
   end
@@ -45,8 +50,8 @@ class Raptor < Formula
 
       This app is ad-hoc signed, not Apple-notarized. The formula does not
       remove quarantine flags or change macOS security settings.
-      Stable archive downloads must be publicly accessible.
-      Private HEAD builds need repository read access; see the README.
+      A manual CLI earlier on PATH (such as ~/.local/bin/raptor) shadows
+      this package's CLI; remove it to use the managed one.
 
       App: #{opt_libexec}/Raptor.app
       CLI: #{opt_bin}/raptor
@@ -84,4 +89,3 @@ class Raptor < Formula
     assert_match "unknown method", response["error"]
   end
 end
-
